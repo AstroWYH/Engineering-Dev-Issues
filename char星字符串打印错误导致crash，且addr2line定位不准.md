@@ -1,4 +1,4 @@
-# 问题积累-char*字符串打印错误导致crash，且addr2line定位不准
+# char*字符串打印错误导致crash，且addr2line定位不准
 
 ```cpp
 STRING = "a,b,c"
