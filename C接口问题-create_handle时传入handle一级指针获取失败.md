@@ -10,7 +10,15 @@
 
 ### 详细描述
 
-![image-20220809133337615](https://hanbabang-1311741789.cos.ap-chengdu.myqcloud.com/Pics/image-20220809133337615.png)
+```c
+SOME_STATUS create_handle(pHandle* p_handle, ...) { // pHandle为SDKHandle的一级指针
+    lock();
+    pHandle handle = new SDKHandle();
+    // ...
+    *p_handle = handle;
+    return status;
+}
+```
 
 ```cpp
 如果接口外部调用方，想传入一个handle_impl的m_handle （一级指针），让接口内部给其赋值，即让m_handle指向new handle_impl()。该场景下，如果直接传入m_handle（一级指针）是做不到的，因为接口内部函数会拷贝一个新的指针*p_handle，p_handle会指向new handle_impl()，但这跟m_handle没关系，出了接口内部函数后，m_handle仍然一无所有。
