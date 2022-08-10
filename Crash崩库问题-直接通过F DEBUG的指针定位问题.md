@@ -8,5 +8,8 @@
 
 如果对SDK内部代码模块有信心，则可直接排查该output_frame指针是否为F DEBUG中crash的地址，即可直接确定错误位置，如下图所示。
 
-![image-20220809131341638](https://hanbabang-1311741789.cos.ap-chengdu.myqcloud.com/Pics/image-20220809131341638.png)
+```c
+LOG: ..., output_data addr:0xffffffff
+F DEBUG: ..., fault addr 0xffffffff
+```
 
