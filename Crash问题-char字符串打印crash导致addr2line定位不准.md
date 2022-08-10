@@ -1,4 +1,4 @@
-# Crash崩库问题-char*字符串打印错误crash，且addr2line定位不准
+# Crash问题-char*字符串打印crash导致addr2line定位不准
 
 ```cpp
 // ...
