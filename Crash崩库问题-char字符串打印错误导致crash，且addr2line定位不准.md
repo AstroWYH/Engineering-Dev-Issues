@@ -1,16 +1,17 @@
 # Crash崩库问题-char*字符串打印错误导致crash，且addr2line定位不准
 
 ```cpp
-STRING = "a,b,c"
 // ...
-constexpr char const *CATEGORY_STR = STRING;
+constexpr char const *STR = "a,b,c";
+// 或
+const char* STR = nullptr;
 // ...
 
 // 错误写法：
-// LOG("wyh CATEGORY_LIMIT_STR:%s", *CATEGORY_STR);
+// LOG("wyh STR:%s", *STR);
 
 // 正确写法(不需要解引用)：
-LOG("wyh CATEGORY_LIMIT_STR:%s", CATEGORY_STR);
+LOG("wyh STR:%s", STR);
 ```
 
 CATEGORY_STR本身就是指针，直接用%s打印就是字符串，如果用*CATEGORY_STR打印，则可能造成意料之外的后果。
