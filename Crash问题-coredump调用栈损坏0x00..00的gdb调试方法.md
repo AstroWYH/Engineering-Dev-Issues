@@ -1,4 +1,4 @@
-# crash问题-coredump调用栈损坏0x00..00的gdb调试方法
+# Crash问题-coredump调用栈损坏0x00..00的gdb调试方法
 
 ```c
 // gdb常见操作
