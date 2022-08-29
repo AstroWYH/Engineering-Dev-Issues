@@ -18,7 +18,7 @@ ulimit -c // 确认coredump开关状态，0为关
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ...) // 需开启-g调试编译选项
 
 // 然后执行./test，可生成coredump文件，重新生成需删除当前路径下coredump
-// 通过gdb调试
+// 通过gdb调试 【注】：如有动态库，CMakeLists.txt也需要开启-g选项
 gdb ./test // 程序进入gdb状态
 set args -i xxx -d xxx // 设置参数（如需要）
 show args
