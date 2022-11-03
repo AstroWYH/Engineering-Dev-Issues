@@ -16,5 +16,13 @@ message(STATUS "OpenCV_LIBS = ${OpenCV_LIBS}")
 include_directories(${OPENCV_INCLUDE_DIRS}) # 头文件包含路径
 add_executable(opencv_test ${src})
 target_link_libraries(opencv_test ${OpenCV_LIBS}) # 链接库
+# -------------------------------------------------------------------------------------
+# Android方式
+if(ANDROID)
+	INCLUDE_DIRECTORIES(${project_root_dir}/third_party/.../opencv/include) # 头文件包含路径
+if(ANDROID)
+	INCLUDE(${project_root_dir}/third_party/.../opencv/opencv.cmake) # 定义了库名、库路径等
+add_executable(opencv_test ${src})
+target_link_libraries(opencv_test ${opencv_all}) # 链接库
 ```
 
