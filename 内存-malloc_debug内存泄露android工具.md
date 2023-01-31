@@ -26,7 +26,7 @@ malloc_debug是**Android平台自带**的调试工具，与其他内存检测工
 
 - 这里需要使用带symbol库文件来进行dump文件解析。解析命令：python3 native_heapdump_viewer.py --symbols aaa(symbol库的路径) bbb(dump的heap文件路径) --html > ccc.html(生成html文件的路径)
 - 执行解析命令后，便在指定的路径中生成解析后的html文件，该文件可以直接用浏览器打开。例如：python3 D:\symbols\native_heapdump_viewer.py --symbols ./ ./sdcard/heap.28465.exit.txt --html > heap_infoj14.html
-- 注意：本地要有一个symbols文件夹里面要用so和可执行文件摆放和当初在手机上面的摆放一致。然后这里—symbols指定本地的symbols目录，即相当于手机的根目录。比如手机内文件放在/data/local/tmp/beauty中，本地文件则放在symbols/data/local/tmp/beauty中。
+- 注意：本地要有一个symbols文件夹里面要用so和可执行文件摆放和当初在手机上面的摆放一致。然后这里—symbols指定本地的symbols目录，即相当于手机的根目录。比如手机内文件放在/data/local/tmp/xxx中，本地文件则放在symbols/data/local/tmp/xxx中。
 
 ## 解析结果分析
 
@@ -38,6 +38,6 @@ malloc_debug是**Android平台自带**的调试工具，与其他内存检测工
 
 - 展开至上图之后，最终依次排查疑似项之后定位为
 
-  libxxxBeauty.so xxx::FacexxxCalculator::Process(fsp::CalculatorContext*) D:\myCode\beauty\xxx\sdk\.cxx\cmake\release\arm64-v8a/../../../../features/beauty/src/calculators/face_xxx_calculator.cc:137
+  libxxxxxxso xxx::FacexxxCalculator::Process(fsp::CalculatorContext*) D:\myCode\xxx\xxx\sdk\.cxx\cmake\release\arm64-v8a/../../../../features/xxx/src/calculators/face_xxx_calculator.cc:137
 
 ![image-20230104150301869](https://hanbabang-1311741789.cos.ap-chengdu.myqcloud.com/Pics/image-20230104150301869.png)
