@@ -4,9 +4,37 @@ malloc_debug是**Android平台自带**的调试工具，与其他内存检测工
 
 ## malloc_debug使用介绍
 
-在adb shell中需要去设置的属性
+1）配置好wrap.sh
 
-- adb shell setprop libc.debug.malloc.options "backtrace guard leak_track verbose backtrace_dump_on_exit backtrace_dump_prefix=/sdcard/heap"
+```shell
+#!/system/bin/sh
+LIBC_DEBUG_MALLOC_OPTIONS=backtrace $@
+
+```
+
+```shell
+|- src
+	|- main
+		|- jniLibs
+			|- x86
+		      |- libhello-jni.so
+		   |- arm64-v8a
+		      |- libhello-jni.so
+		   |- 其他指令集对应的目录
+		|- shell
+		   |- lib
+			   |- x86
+			      |- wrap.sh
+			   |- arm64-v8a
+			      |- wrap.sh
+			   |- 其他指令集对应的目录
+```
+
+![image-20230206164544781](https://hanbabang-1311741789.cos.ap-chengdu.myqcloud.com/Pics/image-20230206164544781.png)
+
+2）在adb shell中需要去设置的属性
+
+- adb shell "setprop libc.debug.malloc.options 'backtrace guard leak_track verbose backtrace_dump_on_exit backtrace_dump_prefix=/sdcard/h'"
 - adb shell setprop libc.debug.malloc.program xxx(程序名)
 
 ### 参数介绍
